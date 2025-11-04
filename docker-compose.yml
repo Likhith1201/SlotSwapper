@@ -1,0 +1,30 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+  # Service 1: Our Backend API
+  api:
+    build: .  # Tells Docker to build the image from the Dockerfile in this directory
+    ports:
+      - "5000:5000" # Maps your computer's port 5000 to the container's port 5000
+    environment:
+      # We provide the environment variables directly here
+      # Notice MONGO_URI points to 'db', the name of our database service
+      MONGO_URI: mongodb://db:27017/SlotSwapperDB
+      JWT_SECRET: DOCKER_JWT_SECRET_REPLACE_THIS
+      JWT_EXPIRES_IN: 1d
+      PORT: 5000
+    depends_on:
+      - db # Tells Docker to start the 'db' service before starting the 'api'
+
+  # Service 2: The MongoDB Database
+  db:
+    image: mongo:latest # Uses the official MongoDB image
+    ports:
+      - "27017:27017" # Maps your computer's port 27017 (for debugging)
+    volumes:
+      - mongo-data:/data/db # Persists data so your DB isn't wiped on restart
+
+volumes:
+  mongo-data: # Defines the persistent volume

@@ -92,6 +92,19 @@ To run this project locally, you will need two terminals.
     ```
     The application will open automatically at `http://localhost:3000`. The `package.json` proxy will handle API requests.
 
+
+
+
+### To run locally with Docker:
+    Make sure you have Docker Desktop installed and running.
+    From the root directory, run:
+    
+    ```Bash
+    docker-compose up --build
+    ```
+
+    The backend will be running on http://localhost:5000 and connected to its own private database.
+
 ---
 
 ## 📁 API Endpoints

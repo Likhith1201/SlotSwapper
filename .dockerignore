@@ -1,0 +1,12 @@
+# .dockerignore
+
+# Ignore local dependencies
+node_modules
+
+# Ignore frontend code
+frontend
+
+# Ignore environment files and Git
+.env
+.git
+.gitignore
