@@ -1,7 +1,4 @@
-// src/models/SwapRequest.js
 const mongoose = require('mongoose');
-
-// Define the required status enum for the request
 const RequestStatus = ['PENDING', 'ACCEPTED', 'REJECTED'];
 
 const SwapRequestSchema = new mongoose.Schema({

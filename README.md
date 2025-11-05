@@ -4,8 +4,8 @@ SlotSwapper is a peer-to-peer time-slot scheduling application built for the Ser
 
 This project features a complete MERN stack implementation, including a secure Node.js/Express backend with JWT authentication and a dynamic React (TypeScript) frontend.
 
-**Live Demo URL:** `[Link to your deployed frontend (e.g., Vercel)]`
-**Backend API URL:** `[Link to your deployed backend (e.g., Render)]`
+**Live Demo URL:** `[ https://slot-swapper-iota.vercel.app/login ]`
+**Backend API URL:** `[https://slot-swapper-api-8z69.onrender.com]`
 
 ---
 
@@ -44,7 +44,7 @@ To run this project locally, you will need two terminals.
 
 1.  **Clone the repository:**
     ```bash
-    git clone [Your GitHub Repo URL]
+    git clone [https://github.com/Likhith1201/SlotSwapper]
     cd SlotSwapper
     ```
 
@@ -131,6 +131,5 @@ All protected routes require a `Bearer <token>` in the Authorization header.
 
 ## challenges faced & design choices
 
-* **Design Choice (Atomic Swaps):** The most critical part of the application is accepting a swap. I used **Mongoose Transactions** (`session.startTransaction()`) in the `/api/swaps/response` endpoint. This ensures that the exchange of `owner` IDs on both `Event` documents and the update of the `SwapRequest` status all happen atomically. If any single step fails, the entire transaction is rolled back, preventing data corruption.
 * **Design Choice (Frontend State):** I chose React's Context API for global state management (Authentication). While simple, it was perfect for managing the user and token across the app without the overhead of Redux for a project of this scale.
 * **Challenge (Async Logic):** Managing the flow of the swap (Fetch slots -> Open modal -> Fetch *my* slots -> Submit request -> Refresh) required careful state management and passing callbacks from the parent page (`MarketplacePage`) to the child modal (`RequestSwapModal`) to trigger a data refresh after submission.

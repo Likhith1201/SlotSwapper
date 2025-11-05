@@ -5,7 +5,6 @@ import CreateEventForm from '../components/CreateEventForm';
 import MyEventList from '../components/MyEventList';
 import { IEvent } from '../types/api';
 
-// This is the corrected line: React.FC instead of React.FG
 const DashboardPage: React.FC = () => {
   const { user } = useAuth();
   

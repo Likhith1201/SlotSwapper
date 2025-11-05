@@ -1,4 +1,3 @@
-// src/config/db.js
 const mongoose = require('mongoose');
 const dotenv = require('dotenv'); // Need to load environment variables here too for local testing
 

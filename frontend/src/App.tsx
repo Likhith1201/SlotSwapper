@@ -3,13 +3,12 @@ import React from 'react';
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 
-// Import Pages
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
 import MarketplacePage from './pages/MarketplacePage';
 import RequestsPage from './pages/RequestsPage';
-import Layout from './components/Layout'; // We will create this
+import Layout from './components/Layout'; 
 
 // This component protects routes that require a logged-in user
 const PrivateRoute: React.FC = () => {

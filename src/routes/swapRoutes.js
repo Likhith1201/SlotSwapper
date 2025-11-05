@@ -1,9 +1,8 @@
-// src/routes/swapRoutes.js
 const express = require('express');
 const { 
     createSwapRequest, 
     getMySwapRequests,
-    respondToSwapRequest, // <-- NEW IMPORT
+    respondToSwapRequest, 
 } = require('../controllers/swapController');
 const { getSwappableSlots } = require('../controllers/eventController');
 const { protect } = require('../middleware/authMiddleware');

@@ -51,7 +51,7 @@ const StatusBadge = styled.span<{ status: IEvent['status'] }>`
 // Helper to format dates
 const formatDateTime = (isoString: string) => {
   const date = new Date(isoString);
-  return date.toLocaleString(); // e.g., "11/4/2025, 9:30:00 AM"
+  return date.toLocaleString(); 
 };
 
 const MyEventList: React.FC = () => {

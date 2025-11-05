@@ -1,4 +1,3 @@
-// src/routes/eventRoutes.js
 const express = require('express');
 const { 
     createEvent, 

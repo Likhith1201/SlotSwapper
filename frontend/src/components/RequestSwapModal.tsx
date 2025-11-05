@@ -40,7 +40,6 @@ const SlotList = styled.div`
   border-radius: 4px;
 `;
 
-// --- FIX 1: Define the transient prop as <{ $selected: boolean }> ---
 const SlotItem = styled.label<{ $selected: boolean }>`
   display: block;
   padding: 15px;
@@ -140,7 +139,6 @@ const RequestSwapModal: React.FC<RequestSwapModalProps> = ({ theirSlot, onClose,
         <h2>Request a Swap</h2>
         <p>You are requesting this slot:</p>
         
-        {/* --- FIX 3: Pass the prop as $selected --- */}
         <SlotItem $selected={false} style={{ border: '1px solid #007bff', cursor: 'default' }}>
           <strong>{theirSlot.title}</strong> ({getOwnerName(theirSlot.owner)})<br/>
           <small>{formatDateTime(theirSlot.startTime)} &ndash; {formatDateTime(theirSlot.endTime)}</small>
@@ -158,7 +156,6 @@ const RequestSwapModal: React.FC<RequestSwapModalProps> = ({ theirSlot, onClose,
         {!isLoading && mySwappableSlots.length > 0 && (
           <SlotList>
             {mySwappableSlots.map(slot => (
-              /* --- FIX 4: Pass the prop as $selected --- */
               <SlotItem key={slot._id} $selected={selectedSlotId === slot._id}>
                 <input
                   type="radio"

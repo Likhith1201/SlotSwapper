@@ -1,4 +1,3 @@
-// src/controllers/eventController.js
 const asyncHandler = require('express-async-handler');
 const Event = require('../models/Event');
 

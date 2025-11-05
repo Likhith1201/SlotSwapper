@@ -1,8 +1,7 @@
-// src/controllers/swapController.js
 const asyncHandler = require('express-async-handler');
 const Event = require('../models/Event');
 const SwapRequest = require('../models/SwapRequest');
-const mongoose = require('mongoose'); // <-- NEW IMPORT
+const mongoose = require('mongoose'); 
 
 // @desc    Create a new swap request
 // @route   POST /api/swaps/request

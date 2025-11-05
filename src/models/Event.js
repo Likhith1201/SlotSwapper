@@ -1,7 +1,4 @@
-// src/models/Event.js
 const mongoose = require('mongoose');
-
-// Define the required status enum
 const EventStatus = ['BUSY', 'SWAPPABLE', 'SWAP_PENDING'];
 
 const EventSchema = new mongoose.Schema({

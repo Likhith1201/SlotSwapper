@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./src/config/db');
@@ -6,7 +5,7 @@ const cors = require('cors');
 
 // Import routes and middleware
 const authRoutes = require('./src/routes/authRoutes');
-const eventRoutes = require('./src/routes/eventRoutes'); // <-- NEW IMPORT
+const eventRoutes = require('./src/routes/eventRoutes'); 
 const swapRoutes = require('./src/routes/swapRoutes');
 const { notFound, errorHandler } = require('./src/middleware/errorMiddleware'); 
 
