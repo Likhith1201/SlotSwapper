@@ -19,6 +19,6 @@ router.route('/request').post(protect, createSwapRequest);
 router.route('/requests').get(protect, getMySwapRequests);
 
 // POST /api/swaps/response/:requestId (Accept or Reject a request)
-router.route('/response/:requestId').post(protect, respondToSwapRequest); // <-- NEW ROUTE
+router.route('/response/:requestId').post(protect, respondToSwapRequest); 
 
 module.exports = router;

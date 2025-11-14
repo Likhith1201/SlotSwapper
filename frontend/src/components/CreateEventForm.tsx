@@ -1,4 +1,3 @@
-// src/components/CreateEventForm.tsx
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Card, Input, PrimaryButton } from './CommonStyles';
@@ -27,7 +26,6 @@ const FormRow = styled.div`
 `;
 
 interface CreateEventFormProps {
-  // Callback function to add the new event to the parent's state
   onEventCreated: (newEvent: IEvent) => void;
 }
 
@@ -50,9 +48,8 @@ const CreateEventForm: React.FC<CreateEventFormProps> = ({ onEventCreated }) => 
         startTime,
         endTime,
       });
-      onEventCreated(data); // Pass the new event back up
+      onEventCreated(data); 
       
-      // Reset form
       setTitle('');
       setStartTime('');
       setEndTime('');
@@ -93,7 +90,6 @@ const CreateEventForm: React.FC<CreateEventFormProps> = ({ onEventCreated }) => 
               id="endTime"
               type="datetime-local"
               value={endTime}
-              // This is the corrected line: e.target.value instead of e.g.target.value
               onChange={(e) => setEndTime(e.target.value)}
               required
             />

@@ -1,4 +1,3 @@
-// src/components/CommonStyles.tsx
 import styled from 'styled-components';
 
 // A flexible container
@@ -73,7 +72,7 @@ export const LoadingSpinner = styled.div`
   }
 `;
 
-// Basic Input field
+//  Input field
 export const Input = styled.input`
   width: 100%;
   padding: 10px;

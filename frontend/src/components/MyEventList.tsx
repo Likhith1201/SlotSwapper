@@ -1,4 +1,3 @@
-// src/components/MyEventList.tsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { IEvent } from '../types/api';
@@ -48,7 +47,6 @@ const StatusBadge = styled.span<{ status: IEvent['status'] }>`
   color: ${(props) => props.status === 'SWAP_PENDING' ? '#333' : 'white'};
 `;
 
-// Helper to format dates
 const formatDateTime = (isoString: string) => {
   const date = new Date(isoString);
   return date.toLocaleString(); 
@@ -59,7 +57,6 @@ const MyEventList: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // Fetch events on component mount
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -76,12 +73,10 @@ const MyEventList: React.FC = () => {
   
   // --- API Call Handlers ---
 
-  // Handle Status Update (PUT)
   const handleUpdateStatus = async (eventId: string, newStatus: 'BUSY' | 'SWAPPABLE') => {
     try {
       const { data } = await axios.put<IEvent>(`/api/events/${eventId}`, { status: newStatus });
       
-      // Update the event in the local state
       setEvents(prevEvents =>
         prevEvents.map(event =>
           event._id === eventId ? data : event
@@ -92,7 +87,6 @@ const MyEventList: React.FC = () => {
     }
   };
 
-  // Handle Event Deletion (DELETE)
   const handleDeleteEvent = async (eventId: string) => {
     if (!window.confirm('Are you sure you want to delete this event? This cannot be undone.')) {
       return;
@@ -101,7 +95,6 @@ const MyEventList: React.FC = () => {
     try {
       await axios.delete(`/api/events/${eventId}`);
       
-      // Remove the event from the local state
       setEvents(prevEvents =>
         prevEvents.filter(event => event._id !== eventId)
       );
@@ -127,28 +120,24 @@ const MyEventList: React.FC = () => {
           </EventDetails>
           
           <EventActions>
-            {/* Show "Make Swappable" button if status is BUSY */}
             {event.status === 'BUSY' && (
               <PrimaryButton onClick={() => handleUpdateStatus(event._id, 'SWAPPABLE')}>
                 Make Swappable
               </PrimaryButton>
             )}
 
-            {/* Show "Make Busy" button if status is SWAPPABLE */}
             {event.status === 'SWAPPABLE' && (
               <SecondaryButton onClick={() => handleUpdateStatus(event._id, 'BUSY')}>
                 Make Busy
               </SecondaryButton>
             )}
 
-            {/* Show "Delete" button if status is NOT pending */}
             {event.status !== 'SWAP_PENDING' && (
               <DangerButton onClick={() => handleDeleteEvent(event._id)}>
                 Delete
               </DangerButton>
             )}
             
-            {/* Show disabled button if status IS pending */}
             {event.status === 'SWAP_PENDING' && (
               <SecondaryButton disabled>
                 Pending Swap

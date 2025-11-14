@@ -9,17 +9,14 @@ const { protect } = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
-// POST /api/events (Protected)
 router.route('/')
-  .post(protect, createEvent); // Create event
+  .post(protect, createEvent); 
   
-// GET /api/events/my-events (Protected)
 router.route('/my-events')
-  .get(protect, getMyEvents); // Read all user events
+  .get(protect, getMyEvents); 
 
-// PUT/DELETE /api/events/:id (Protected)
 router.route('/:id')
-  .put(protect, updateEvent)   // Update event
-  .delete(protect, deleteEvent); // Delete event
+  .put(protect, updateEvent)   
+  .delete(protect, deleteEvent); 
 
 module.exports = router;

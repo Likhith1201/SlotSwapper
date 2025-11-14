@@ -27,19 +27,19 @@ app.use(express.json());
 // --- 4. Routes ---
 
 app.use('/api/auth', authRoutes);
-app.use('/api/events', eventRoutes); // <-- REGISTER EVENT ROUTES
-app.use('/api/swaps', swapRoutes); // <-- REGISTER SWAP ROUTES
-// Simple welcome route (Test)
+app.use('/api/events', eventRoutes); 
+app.use('/api/swaps', swapRoutes); 
+// Welcome route 
 app.get('/', (req, res) => {
   res.send('SlotSwapper API is running...');
 });
 
-// --- 5. Error Handling Middleware (MUST be last) ---
+// --- 5. Error Handling Middleware  ---
 app.use(notFound);
 app.use(errorHandler);
 
 
-// --- 6. Define Port and Start Server ---
+// --- 6. Port and Start Server ---
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, console.log(`Server running on port ${PORT}`));

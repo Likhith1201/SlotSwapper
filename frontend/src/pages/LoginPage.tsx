@@ -1,4 +1,3 @@
-// src/pages/LoginPage.tsx
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -18,7 +17,7 @@ const LoginPage: React.FC = () => {
     
     try {
       await login(email, password);
-      navigate('/dashboard'); // Redirect on success
+      navigate('/dashboard');
     } catch (err: any) {
       setError(err.message);
     }

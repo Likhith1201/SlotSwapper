@@ -2,9 +2,6 @@ const User = require('../models/User');
 const generateToken = require('../utils/generateToken');
 const asyncHandler = require('express-async-handler');
 
-// @desc    Register a new user
-// @route   POST /api/auth/register
-// @access  Public
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -15,7 +12,7 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new Error('User already exists');
   }
 
-  // 2. Create the user (password hashing happens automatically via pre-save middleware in User.js)
+  // 2. Create the user 
   const user = await User.create({ name, email, password });
 
   // 3. Respond with user info and token
@@ -32,13 +29,11 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Authenticate user & get token
-// @route   POST /api/auth/login
-// @access  Public
+
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
-  // 1. Find user by email, explicitly requesting the password field (due to select: false in model)
+  // 1. Find user by email, explicitly requesting the password field 
   const user = await User.findOne({ email }).select('+password'); 
 
   // 2. Check if user exists and if password matches

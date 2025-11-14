@@ -8,19 +8,19 @@ const SwapRequestSchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
-  // The user who is receiving the request (owner of theirSlot)
+  // The user who is receiving the request 
   recipient: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true,
   },
-  // The slot offered by the requester (mySlotId from the prompt)
+  // The slot offered by the requester 
   mySlot: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Event',
     required: true,
   },
-  // The slot the requester wants (theirSlotId from the prompt)
+  // The slot the requester wants 
   theirSlot: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Event',

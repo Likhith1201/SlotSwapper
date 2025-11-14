@@ -1,4 +1,3 @@
-// src/components/RequestSwapModal.tsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { IEvent } from '../types/api';
@@ -63,14 +62,12 @@ const ErrorMessage = styled.p`
   font-size: 14px;
 `;
 
-// --- Helper ---
 const formatDateTime = (isoString: string) => new Date(isoString).toLocaleString();
 
-// --- Component Props ---
 interface RequestSwapModalProps {
-  theirSlot: IEvent; // The slot the user wants
+  theirSlot: IEvent; 
   onClose: () => void;
-  onSwapRequested: () => void; // To refresh the marketplace list
+  onSwapRequested: () => void; 
 }
 
 const RequestSwapModal: React.FC<RequestSwapModalProps> = ({ theirSlot, onClose, onSwapRequested }) => {
@@ -130,7 +127,7 @@ const RequestSwapModal: React.FC<RequestSwapModalProps> = ({ theirSlot, onClose,
     if (typeof owner === 'object' && owner !== null) {
       return owner.name;
     }
-    return 'User'; // Fallback
+    return 'User'; 
   };
 
   return (

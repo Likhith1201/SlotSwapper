@@ -1,4 +1,3 @@
-// src/pages/MarketplacePage.tsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { IEvent, IUser } from '../types/api';
@@ -63,7 +62,6 @@ const MarketplacePage: React.FC = () => {
     }
   };
 
-  // Fetch on component mount
   useEffect(() => {
     fetchMarketplaceSlots();
   }, []);
@@ -88,9 +86,9 @@ const MarketplacePage: React.FC = () => {
   // Helper to safely get owner name
   const getOwnerName = (owner: IEvent['owner']): string => {
     if (typeof owner === 'object' && owner !== null) {
-      return owner.name; // Owner is populated IUser
+      return owner.name; 
     }
-    return 'Unknown User'; // Fallback
+    return 'Unknown User'; 
   };
 
   return (
@@ -123,7 +121,6 @@ const MarketplacePage: React.FC = () => {
         ))}
       </MarketplaceContainer>
 
-      {/* --- The Modal --- */}
       {isModalOpen && selectedSlot && (
         <RequestSwapModal
           theirSlot={selectedSlot}

@@ -4,7 +4,7 @@ const EventStatus = ['BUSY', 'SWAPPABLE', 'SWAP_PENDING'];
 const EventSchema = new mongoose.Schema({
   owner: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User', // Reference to the User model
+    ref: 'User', 
     required: true,
   },
   title: {
@@ -22,7 +22,7 @@ const EventSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: EventStatus, // Ensures the status is one of the allowed values
+    enum: EventStatus, 
     default: 'BUSY',
     required: true,
   },

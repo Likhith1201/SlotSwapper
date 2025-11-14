@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const dotenv = require('dotenv'); // Need to load environment variables here too for local testing
+const dotenv = require('dotenv');
 
 dotenv.config(); // Load .env file
 
